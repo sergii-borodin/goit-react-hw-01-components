@@ -1,6 +1,5 @@
 import Profile from "../Profile/Profile"
 import { Container } from "./App.styled";
-import propTypes from 'prop-types'
 import Statistics from "components/Statistics/Statistics";
 
 import user from "../../data/user.json"
@@ -20,15 +19,3 @@ export const App = () => {
   );
 };
 
-Profile.propTypes = {
-  username: propTypes.string.isRequired,
-  tag: propTypes.string.isRequired,
-  location: propTypes.string.isRequired,
-  avatar: propTypes.string.isRequired,
-  stats: propTypes.shape({
-    followers: propTypes.number.isRequired,
-    views: propTypes.number.isRequired,
-    likes: propTypes.number.isRequired,
-  })
-
-}

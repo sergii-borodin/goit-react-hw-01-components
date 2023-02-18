@@ -1,22 +1,28 @@
-import React from 'react'
 import PropTypes from 'prop-types'
-import { StatsBoard, StatsContainer, BoardTitle, StatInfo  } from './Statistics.styled'
+import { StatsBoard, StatsContainer, BoardTitle, StatItem, StatItemText  } from './Statistics.styled'
 
-const Statistics = ({title, stats}) => {
+const Statistics = ({ title, stats }) => {
   return (
     <StatsBoard className="statistics">
-        {title && <BoardTitle>Upload stats</BoardTitle>}
+        {title && <BoardTitle>{title}</BoardTitle>}
   
-        <StatsContainer className="stat-list">
-            {stats.map(stat => (<StatInfo key={stat.id}>
-            <span className="label">{stat.label}</span>
-            <span className="percentage">{stat.percentage}</span>
-            </StatInfo>))}
+        <StatsContainer>
+            {stats.map(stat => (<StatItem items={stats.length} key={stat.id}>
+            <StatItemText>{stat.label}</StatItemText>
+            <StatItemText>{stat.percentage}%</StatItemText>
+            </StatItem>))}
         </StatsContainer>
 </StatsBoard>
   )
 }
 
-Statistics.propTypes = {stats: PropTypes.arrayOf(PropTypes.object)};
+Statistics.propTypes = {
+    stats: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired,
+        percentage: PropTypes.string.isRequired,
+    })),
+    title: PropTypes.string
+};
 
 export default Statistics
