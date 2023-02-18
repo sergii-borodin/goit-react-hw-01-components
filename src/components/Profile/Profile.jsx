@@ -1,33 +1,32 @@
 import React from 'react'
-import { ProfileCard, AvatarImage, DescriptionContainer, ProfileName, ProfileText, StatsContainer, StatInfo, StatName, StatValue } from './Profile.styled'
+import { ProfileCard, AvatarImage, DescriptionContainer, ProfileName, ProfileText, StatsContainer, StatInfo, StatName, StatValue} from './Profile.styled'
 // import PropTypes from 'prop-types'
 
 const Profile = ({username, tag, location, avatar,stats}) => {
     return (
-<ProfileCard className="profile">
+<ProfileCard>
     <DescriptionContainer className="description">
         <AvatarImage
         src={avatar}
         alt="User avatar"
-        className="avatar"
         />
-        <ProfileName className="name">{username}</ProfileName>
-        <ProfileText className="tag">{tag}</ProfileText>
-        <ProfileText className="location">{location}</ProfileText>
+        <ProfileName>{username}</ProfileName>
+        <ProfileText>{tag}</ProfileText>
+        <ProfileText>{location}</ProfileText>
     </DescriptionContainer>
 
-    <StatsContainer className="stats">
+    <StatsContainer>
         <StatInfo>
-            <StatName className="label">Followers</StatName>
-            <StatValue className="quantity">{stats.followers}</StatValue>
+            <StatName>Followers</StatName>
+            <StatValue>{stats.followers}</StatValue>
         </StatInfo>
         <StatInfo>
-            <StatName className="label">Views</StatName>
-            <StatValue className="quantity">{ stats.views}</StatValue>
+            <StatName>Views</StatName>
+            <StatValue>{ stats.views}</StatValue>
         </StatInfo>
         <StatInfo>
-            <StatName className="label">Likes</StatName>
-            <StatValue className="quantity">{stats.likes}</StatValue>
+            <StatName>Likes</StatName>
+            <StatValue>{stats.likes}</StatValue>
         </StatInfo>
     </StatsContainer>
 </ProfileCard>
