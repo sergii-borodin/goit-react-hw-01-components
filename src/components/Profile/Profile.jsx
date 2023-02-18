@@ -1,39 +1,39 @@
 import React from 'react'
+import { ProfileCard, AvatarImage, DescriptionContainer, ProfileName, ProfileText, StatsContainer, StatInfo, StatName, StatValue } from './Profile.styled'
 // import PropTypes from 'prop-types'
 
 const Profile = ({username, tag, location, avatar,stats}) => {
     return (
-    <><div className="profile">
-  <div className="description">
-    <img
-      src={avatar}
-      alt="User avatar"
-      className="avatar"
-    />
-    <p className="name">{username}</p>
-    <p className="tag">{tag}</p>
-    <p className="location">{location}</p>
-  </div>
+<ProfileCard className="profile">
+    <DescriptionContainer className="description">
+        <AvatarImage
+        src={avatar}
+        alt="User avatar"
+        className="avatar"
+        />
+        <ProfileName className="name">{username}</ProfileName>
+        <ProfileText className="tag">{tag}</ProfileText>
+        <ProfileText className="location">{location}</ProfileText>
+    </DescriptionContainer>
 
-  <ul className="stats">
-    <li>
-      <span className="label">Followers</span>
-      <span className="quantity">{stats.followers}</span>
-    </li>
-    <li>
-      <span className="label">Views</span>
-      <span className="quantity">{ stats.views}</span>
-    </li>
-    <li>
-      <span className="label">Likes</span>
-      <span className="quantity">{stats.likes}</span>
-    </li>
-  </ul>
-</div></>
+    <StatsContainer className="stats">
+        <StatInfo>
+            <StatName className="label">Followers</StatName>
+            <StatValue className="quantity">{stats.followers}</StatValue>
+        </StatInfo>
+        <StatInfo>
+            <StatName className="label">Views</StatName>
+            <StatValue className="quantity">{ stats.views}</StatValue>
+        </StatInfo>
+        <StatInfo>
+            <StatName className="label">Likes</StatName>
+            <StatValue className="quantity">{stats.likes}</StatValue>
+        </StatInfo>
+    </StatsContainer>
+</ProfileCard>
   )
 }
 
 // Profile.propTypes = {}
 
 export default Profile
-
